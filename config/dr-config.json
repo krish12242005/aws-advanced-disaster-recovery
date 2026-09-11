@@ -1,0 +1,30 @@
+{
+  "project": "aws-advanced-disaster-recovery",
+  "region": "ap-south-1",
+  "architecture": {
+    "availability_zones": 2,
+    "application_servers": 2,
+    "database": "RDS PostgreSQL Multi-AZ",
+    "load_balancer": "Application Load Balancer",
+    "dns": "Route 53",
+    "backup": "AWS Backup",
+    "object_storage": "Amazon S3"
+  },
+  "recovery": {
+    "backup_schedule": "Daily",
+    "backup_retention_days": 35,
+    "rds_backup_retention_days": 7,
+    "s3_versioning": true,
+    "s3_encryption": "AES256"
+  },
+  "scalability": {
+    "application_instances": 2,
+    "multi_az": true
+  },
+  "security": {
+    "public_database": false,
+    "private_application_subnets": true,
+    "public_access_block": true,
+    "iam_least_privilege": true
+  }
+}
